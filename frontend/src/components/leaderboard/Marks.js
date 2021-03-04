@@ -66,6 +66,8 @@ export class Form extends Component {
       total_marks: "",
       percentage: "",
     });
+    $("#total_marks").text("");
+    $("#percentage").text("");
   };
 
   render() {
