@@ -4,8 +4,8 @@
   "description": "Assignment task received when applied to AlmaBetter. This project contains result of that task.",
   "main": "webpack.config.js",
   "scripts": {
-    "dev": "webpack --mode development --watch ./marksmanager/frontend/src/index.js --output ./marksmanager/frontend/static/frontend/main.js",
-    "build": "webpack --mode production ./marksmanager/frontend/src/index.js --output ./marksmanager/frontend/static/frontend/main.js"
+    "dev": "webpack --mode development --watch ./marksmanager/frontend/src/index.js -o ./marksmanager/frontend/static/frontend",
+    "build": "webpack --mode production ./marksmanager/frontend/src/index.js -o ./marksmanager/frontend/static/frontend"
   },
   "repository": {
     "type": "git",
@@ -29,6 +29,7 @@
   "dependencies": {
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "react-router-dom": "^5.2.0"
   }
 }
