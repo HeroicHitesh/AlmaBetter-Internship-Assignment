@@ -4,8 +4,8 @@
   "description": "Assignment task received when applied to AlmaBetter. This project contains result of that task.",
   "main": "webpack.config.js",
   "scripts": {
-    "dev": "webpack --mode development --watch ./marksmanager/frontend/src/index.js -o ./marksmanager/frontend/static/frontend",
-    "build": "webpack --mode production ./marksmanager/frontend/src/index.js -o ./marksmanager/frontend/static/frontend"
+    "dev": "webpack --mode development --watch ./frontend/src/index.js -o ./frontend/static/frontend",
+    "build": "webpack --mode production ./frontend/src/index.js -o ./frontend/static/frontend"
   },
   "repository": {
     "type": "git",
@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
+    "package.json": "^2.0.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-data-table-component": "^6.11.7",
