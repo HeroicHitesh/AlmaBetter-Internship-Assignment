@@ -20,7 +20,7 @@ A 3 page portal that captures marks of students in one page and displays the lea
   - Should have sorting and searching functionality
 - Extra credits would be given to candidates who create components (preferably in reactJS) for each functionality above.
 
-**Backend:** (Partially-done)
+**Backend:**
 
 - Python (Flask/Django) CRUD APIs for POST marks and GET results for the leaderboard.
 - MySQL Datastore for storing of marks.

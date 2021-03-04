@@ -1,17 +1,17 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { addMarks } from '../../actions/marks';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { addMarks } from "../../actions/marks";
 
 export class Form extends Component {
   state = {
-    roll_no: '',
-    name: '',
-    maths_marks: '',
-    physics_marks: '',
-    chemistry_marks: '',
-    total_marks: '',
-    percentage: '',
+    roll_no: "",
+    name: "",
+    maths_marks: "",
+    physics_marks: "",
+    chemistry_marks: "",
+    total_marks: "",
+    percentage: "",
   };
 
   static propTypes = {
@@ -20,13 +20,13 @@ export class Form extends Component {
 
   calculateSum() {
     var sum = 0;
-    $('.marks').each(function () {
+    $(".marks").each(function () {
       if (!isNaN(this.value) && this.value.length != 0) {
         sum += parseInt(this.value);
       }
     });
-    $('#total_marks').html(sum);
-    $('#percentage').html(sum / 3);
+    $("#total_marks").html(sum);
+    $("#percentage").html(sum / 3);
   }
 
   onChange = (e) => {
@@ -56,13 +56,13 @@ export class Form extends Component {
     };
     this.props.addMarks(marks);
     this.setState({
-      roll_no: '',
-      name: '',
-      maths_marks: '',
-      physics_marks: '',
-      chemistry_marks: '',
-      total_marks: '',
-      percentage: '',
+      roll_no: "",
+      name: "",
+      maths_marks: "",
+      physics_marks: "",
+      chemistry_marks: "",
+      total_marks: "",
+      percentage: "",
     });
   };
 
@@ -87,6 +87,8 @@ export class Form extends Component {
               type="text"
               name="roll_no"
               onChange={this.onChange}
+              pattern="[A-Za-z0-9]"
+              required
               value={roll_no}
             />
           </div>
@@ -97,6 +99,8 @@ export class Form extends Component {
               type="text"
               name="name"
               onChange={this.onChange}
+              pattern="[A-Za-z]"
+              required
               value={name}
             />
           </div>
@@ -107,7 +111,10 @@ export class Form extends Component {
               type="number"
               name="maths_marks"
               onChange={this.onChange}
+              required
               value={maths_marks}
+              min={0}
+              max={100}
             />
           </div>
           <div className="form-group">
@@ -117,7 +124,10 @@ export class Form extends Component {
               type="number"
               name="physics_marks"
               onChange={this.onChange}
+              required
               value={physics_marks}
+              min={0}
+              max={100}
             />
           </div>
           <div className="form-group">
@@ -127,7 +137,10 @@ export class Form extends Component {
               type="number"
               name="chemistry_marks"
               onChange={this.onChange}
+              required
               value={chemistry_marks}
+              min={0}
+              max={100}
             />
           </div>
           <div className="form-group">
@@ -141,7 +154,12 @@ export class Form extends Component {
           </div>
           <div className="form-group">
             <label>Percentage</label>
-            <span className="form-control" id="percentage" name="percentage" value={percentage} />
+            <span
+              className="form-control"
+              id="percentage"
+              name="percentage"
+              value={percentage}
+            />
           </div>
           <div className="form-group">
             <button type="submit" className="btn btn-primary">
