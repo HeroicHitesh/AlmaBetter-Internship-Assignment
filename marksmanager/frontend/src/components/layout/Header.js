@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 export class Header extends Component {
   render() {
@@ -19,7 +20,18 @@ export class Header extends Component {
           <a className="navbar-brand" href="#">
             Marks Manager
           </a>
-          <ul className="navbar-nav mr-auto mt-2 mt-lg-0"></ul>
+          <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
+            <li className="nav-item">
+              <Link to="/marks" className="nav-link">
+                Add Marks
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/leaderboard" className="nav-link">
+                Show Leaderboard
+              </Link>
+            </li>
+          </ul>
         </div>
       </nav>
     );
