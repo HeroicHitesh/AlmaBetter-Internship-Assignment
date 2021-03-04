@@ -26,7 +26,9 @@ export class Form extends Component {
       }
     });
     $("#total_marks").html(sum);
-    $("#percentage").html(sum / 3);
+    this.state.total_marks = sum;
+    $("#percentage").html((sum / 3).toFixed(2));
+    this.state.percentage = (sum / 3).toFixed(2);
   }
 
   onChange = (e) => {
@@ -87,7 +89,7 @@ export class Form extends Component {
               type="text"
               name="roll_no"
               onChange={this.onChange}
-              pattern="[A-Za-z0-9]"
+              pattern="[A-Za-z0-9]+"
               required
               value={roll_no}
             />
@@ -99,7 +101,7 @@ export class Form extends Component {
               type="text"
               name="name"
               onChange={this.onChange}
-              pattern="[A-Za-z]"
+              pattern="[A-Za-z]+"
               required
               value={name}
             />
@@ -149,17 +151,11 @@ export class Form extends Component {
               className="form-control"
               id="total_marks"
               name="total_marks"
-              value={total_marks}
             />
           </div>
           <div className="form-group">
             <label>Percentage</label>
-            <span
-              className="form-control"
-              id="percentage"
-              name="percentage"
-              value={percentage}
-            />
+            <span className="form-control" id="percentage" name="percentage" />
           </div>
           <div className="form-group">
             <button type="submit" className="btn btn-primary">
