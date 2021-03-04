@@ -4,7 +4,8 @@
   "description": "Assignment task received when applied to AlmaBetter. This project contains result of that task.",
   "main": "webpack.config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "webpack --mode development --watch ./marksmanager/frontend/src/index.js --output ./marksmanager/frontend/static/frontend/main.js",
+    "build": "webpack --mode production ./marksmanager/frontend/src/index.js --output ./marksmanager/frontend/static/frontend/main.js"
   },
   "repository": {
     "type": "git",
