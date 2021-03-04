@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import DataTable from 'react-data-table-component';
 import { getMarks } from '../../actions/marks';
 
 export class Leaderboard extends Component {
@@ -14,38 +15,62 @@ export class Leaderboard extends Component {
   }
 
   render() {
+    const columns = [
+      {
+        name: 'Roll No',
+        selector: 'roll_no',
+        sortable: true,
+        wrap: true,
+      },
+      {
+        name: 'Name',
+        selector: 'name',
+        sortable: true,
+      },
+      {
+        name: 'Maths Marks',
+        selector: 'maths_marks',
+        sortable: true,
+      },
+      {
+        name: 'Physics Marks',
+        selector: 'physics_marks',
+        sortable: true,
+      },
+      {
+        name: 'Chemistry Marks',
+        selector: 'chemistry_marks',
+        sortable: true,
+      },
+      {
+        name: 'Total Marks',
+        selector: 'total_marks',
+        sortable: true,
+      },
+      {
+        name: 'Percentage',
+        selector: 'percentage',
+        sortable: true,
+      },
+    ];
+    const data = this.props.marks.map((mark) => ({
+      roll_no: mark.roll_no,
+      name: mark.name,
+      maths_marks: mark.maths_marks,
+      physics_marks: mark.physics_marks,
+      chemistry_marks: mark.chemistry_marks,
+      total_marks: mark.total_marks,
+      percentage: mark.percentage,
+    }));
     return (
-      <>
-        <h2>Leaderboard</h2>
-        <table className="table table-striped">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Roll No</th>
-              <th>Name</th>
-              <th>Maths Marks</th>
-              <th>Physics Marks</th>
-              <th>Chemistry Marks</th>
-              <th>Total Marks</th>
-              <th>Percentage</th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.props.marks.map((mark) => (
-              <tr key={mark.id}>
-                <td>{mark.id}</td>
-                <td>{mark.roll_no}</td>
-                <td>{mark.name}</td>
-                <td>{mark.maths_marks}</td>
-                <td>{mark.physics_marks}</td>
-                <td>{mark.chemistry_marks}</td>
-                <td>{mark.total_marks}</td>
-                <td>{mark.percentage}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </>
+      <DataTable
+        title="Leaderboard"
+        columns={columns}
+        data={data}
+        highlightOnHover
+        defaultSortField={(columns.selector = 'percentage')}
+        defaultSortAsc={false}
+      />
     );
   }
 }
