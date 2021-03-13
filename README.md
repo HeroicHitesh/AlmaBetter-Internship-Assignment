@@ -1,3 +1,5 @@
+# Internship assignment for [AlmaBetter](https://www.almabetter.com)
+
 A 3 page portal that captures marks of students in one page and displays the leaderboard in another page
 
 **Frontend:**
